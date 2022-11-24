@@ -1,0 +1,76 @@
+.rightbar{
+    flex: 3.5;
+    padding: 20px 10px 0 0;
+}
+
+.birthdayWrapper{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.birthdayImg{
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
+}
+
+.birthdayText{
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+.rightbarAdImg{
+    border-radius: 10px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.rightbarTitle{
+    font-size: 15px;
+    font-weight: 500;
+    margin: 20px 0 0 0;
+}
+
+.rightbarFriendList{
+    margin: 0;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.userInfoTitle{
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.userInfoItem{
+    padding: 0;
+    margin: 10px 0;
+    color: rgb(126, 126, 126);
+}
+
+.userInfoItem span{
+    color: black;
+}
+
+.closeFriendList{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.closeFriend{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.closeFriendProfileImg{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}

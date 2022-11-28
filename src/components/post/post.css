@@ -38,7 +38,8 @@
 
 .postTime{
     font-size: 12px;
-    margin-left: 5px;
+    margin-left: 15px;
+    font-weight: 500;
 }
 
 .postOption{

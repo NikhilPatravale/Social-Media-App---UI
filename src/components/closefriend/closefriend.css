@@ -1,0 +1,22 @@
+.closeFriendList{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.closeFriend{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.closeFriendProfileImg{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}

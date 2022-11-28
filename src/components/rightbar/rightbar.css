@@ -54,23 +54,17 @@
     color: black;
 }
 
-.closeFriendList{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-.closeFriend{
-    display: flex;
-    flex-direction: column;
+.profileRightbarFollowButton{
+    margin-top: 30px;
     margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: rgb(46, 113, 238);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    margin: 10px;
-}
-
-.closeFriendProfileImg{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    border: none;
     border-radius: 5px;
 }

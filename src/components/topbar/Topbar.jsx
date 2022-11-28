@@ -1,21 +1,31 @@
 import './topbar.css';
 import { Person, Search, Chat, Notifications } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext/AuthContext'
 
 export default function Topbar() {
+    const { user } = useContext(AuthContext)
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
     return (
         <div className="topbarContainer">
             <div className="topbarLeft">
-                <span className="logo">SocialApp</span>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                    <span className="logo">SocialApp</span>
+                </Link>
             </div>
             <div className="topbarCenter">
                 <div className="searchbar">
-                    <Search className="searchLogo"/>
+                    <Search className="searchLogo" />
                     <input placeholder="Search for firend, post or video" className="searchInput" />
                 </div>
             </div>
             <div className="topbarRight">
                 <div className="topbarLinks">
-                    <span className="topbarLinkItem">Home</span>
+                    <Link to={"/home"} style={{textDecoration:"none", color:"white"}}>
+                        <span className="topbarLinkItem">Home</span>
+                    </Link>
                     <span className="topbarLinkItem">Timeline</span>
                 </div>
                 <div className="topbarIcons">
@@ -32,7 +42,9 @@ export default function Topbar() {
                         <span className="topbarIconBadge">3</span>
                     </div>
                 </div>
-                <img src="/assets/person/1.jpeg" className="topbarImage" />
+                <Link to={`/profile/${user.userName}`} >
+                    <img src={user.profilePicture ? PF + user.profilePicture : PF + "avatar.png"} alt="" className="topbarImage" />
+                </Link>
             </div>
         </div>
     )

@@ -60,6 +60,7 @@
 .topbarLinks{
     display: flex;
     margin-left: 15px;
+    align-items: center;
 }
 
 .topbarLinkItem{

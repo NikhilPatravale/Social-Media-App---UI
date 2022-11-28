@@ -5,15 +5,15 @@ import Topbar from "../../components/topbar/Topbar";
 import "./home.css"
 
 export default function Home() {
-  return (
-    <>
-      <Topbar />
-      <div className="homeContainer">
-        <Sidebar />
-        <Feed />
-        <Rightbar isHome={true}/>
-      </div>
-    </>
 
+  return (
+      <>
+        <Topbar />
+        <div className="homeContainer">
+          <Sidebar />
+          <Feed />
+          <Rightbar />
+        </div>
+      </>
   )
 }

@@ -72,6 +72,10 @@
     margin-bottom: 10px;
 }
 
+.loginButton:disabled{
+    cursor: not-allowed;
+}
+
 .forgotPassword{
     color: rgb(73, 165, 235);
     margin-bottom: 20px;
@@ -89,4 +93,8 @@
     color: white;
     cursor: pointer;
     margin-bottom: 10px;
+}
+
+.createAccountButton:disabled{
+    cursor: not-allowed;
 }

@@ -1,29 +1,48 @@
 import { MoreVert } from "@mui/icons-material"
-import { useState } from "react"
-import { Users } from "../../dummyData"
+import axios from "axios"
+import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { format } from "timeago.js"
+import {AuthContext} from "../../context/AuthContext/AuthContext"
 import "./post.css"
 
-export default function Post({post}) {
-    const[likes, setLikes] = useState(post.like)
-    const[isLiked, setIsLiked] = useState(false)
+export default function Post({ post }) {
+    const [likes, setLikes] = useState(post.likes?.length)
+    const [isLiked, setIsLiked] = useState(false)
+    const [post_user, setPostUser] = useState({})
+    const {user} = useContext(AuthContext)
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
-    const likeHandler = () => {
-        if(isLiked) {
-            setIsLiked(false)
-            setLikes(likes => likes - 1)
-        } else{
-            setIsLiked(true)
-            setLikes(likes => likes + 1)
+    useEffect(() => {
+        const fetchUser = async () => {
+            const res = await axios.get(`/users?id=${post.userId}`)
+            setPostUser(res.data)
+            if(res.data.likes?.includes(user._id)) setIsLiked(true)
+        }
+        fetchUser()
+    }, [post.userId, isLiked])
+
+    const likeHandler = async () => {
+        try{
+            await axios.put(`/posts/${post._id}/like`, {userId: user._id})
+            if(isLiked) setLikes(likes => likes - 1)
+            else setLikes(likes => likes + 1)
+            setIsLiked(!isLiked)
+        }catch(err){
+            console.log(err)
         }
     }
+
     return (
         <div className="post">
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img src={Users.filter(val => val.id === post.userId)[0].profilePicture} alt="profile image" className="postProfileImg" />
-                        <span className="postUserName">{Users.filter(val => val.id === post.userId)[0].username}</span>
-                        <span className="postTime">{post.date}</span>
+                        <Link to={`/profile/${post_user.userName}`}>
+                            <img src={post_user.profilePicture ? (PF + post_user.profilePicture) : (PF + "avatar.png")} alt="" className="postProfileImg" />
+                        </Link>
+                        <span className="postUserName">{post_user.userName}</span>
+                        <span className="postTime">{format(post.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
                         <MoreVert className="postOption" />
@@ -31,16 +50,16 @@ export default function Post({post}) {
                 </div>
                 <div className="postCenter">
                     <span className="postText">{post?.desc}</span>
-                    <img src={post.photo} alt="post image" className="postImage" />
+                    <img src={PF + post.image} alt="" className="postImage" />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img src="/assets/like.png"  onClick={likeHandler} alt="like image" className="postLikeImg" />
-                        <img src="/assets/heart.png" onClick={likeHandler} alt="like image" className="postLikeImg" />
+                        <img src={`${PF}like.png`} onClick={likeHandler} alt="like" className="postLikeImg" />
+                        <img src={`${PF}heart.png`} onClick={likeHandler} alt="heart" className="postLikeImg" />
                         <span className="postLikeCount">{likes} people like this</span>
                     </div>
                     <div className="postBottomRight">
-                        <span className="postComment">{post.comment} comments</span>
+                        <span className="postComment">{post.comments?.length} comments</span>
                     </div>
                 </div>
             </div>

@@ -16,13 +16,16 @@ export default function Feed({userName}) {
       setPosts(res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
     }
     fetchPosts()
-  },[userName])
+  },[userName, user?._id])
 
   return (
     <div className="feed">
       <div className="feedWrapper">
         {userName ? ((user.userName === userName) ? <Share/> : null) : <Share />}
         {posts.map( p => <Post key={p._id} post={p}/>)}
+        {posts.length === 0 && <div className="noPostsContainer">
+          <span className="noPostText">No posts yet</span>
+        </div>}
       </div>
     </div>
   )

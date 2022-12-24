@@ -17,10 +17,10 @@ export default function Post({ post }) {
         const fetchUser = async () => {
             const res = await axios.get(`/users?id=${post.userId}`)
             setPostUser(res.data)
-            if(res.data.likes?.includes(user._id)) setIsLiked(true)
+            if(res.data.likes?.includes(user?._id)) setIsLiked(true)
         }
         fetchUser()
-    }, [post.userId, isLiked])
+    }, [post.userId, isLiked, user?._id])
 
     const likeHandler = async () => {
         try{

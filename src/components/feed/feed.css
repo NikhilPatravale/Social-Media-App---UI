@@ -5,3 +5,15 @@
 .feedWrapper{
     padding: 20px;
 }
+
+.noPostsContainer{
+    padding: 30px 20px 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.noPostText{
+    margin: 0 auto;
+    font-weight: 450;
+    font-size: 26px;
+}

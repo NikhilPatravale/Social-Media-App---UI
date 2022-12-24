@@ -1,0 +1,131 @@
+.messanger {}
+
+.messangerWrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px;
+    height: calc(100vh - 130px);
+}
+
+.messangerLeft {
+    flex: 3;
+}
+
+.leftWrapper,
+.centerWrapper,
+.rightWrapper {
+    padding: 0 0;
+    height: 100%;
+}
+
+.searchCoversation {
+    width: 90%;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid rgb(145, 145, 145);
+}
+
+.searchCoversation:focus {
+    outline: none;
+}
+
+.messangerCenter {
+    flex: 6;
+    padding: 0 10px;
+}
+
+.centerWrapper {
+    position: relative;
+}
+
+.chatUserInfoBanner {
+    border-bottom: 1px solid gray;
+    max-width: 100%;
+    height: 35px;
+    padding: 0 20px 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chatUserProfileImg {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.status{
+    font-size: 12px;
+    font-weight: 500;
+    color: gray;
+}
+
+.messagesWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.conversationDefault {
+    width: 100%;
+    position: absolute;
+    top: 40px;
+}
+
+.conversationDefaultText {
+    font-size: 45px;
+    color: rgb(210, 209, 209);
+    cursor: default
+}
+
+.chatTop {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.chatBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.chatBox {
+    width: 80%;
+    height: 40px;
+    border: none;
+    resize: none;
+}
+
+.chatBox:focus {
+    outline: none;
+}
+
+.chatSendButton {
+    height: 40px;
+    width: 70px;
+    border: none;
+    border-radius: 10px;
+    background-color: palegreen;
+    cursor: pointer;
+}
+
+.messangerRight {
+    flex: 3;
+}
+
+.rightWrapper {
+    padding-left: 10px;
+}

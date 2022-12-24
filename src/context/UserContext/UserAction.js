@@ -7,3 +7,8 @@ export const UnfollowUser = (userId) => ({
     type: "UNFOLLOW",
     payload: userId
 })
+
+export const UpdateUser = (user) => ({
+    type: "UPDATE_USER",
+    payload: user
+})

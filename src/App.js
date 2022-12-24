@@ -8,12 +8,13 @@ import {
   Route,
   Navigate
 } from "react-router-dom"
-import { AuthContext, AuthContextProvider } from "./context/AuthContext/AuthContext";
+import { AuthContext } from "./context/AuthContext/AuthContext";
 import { useContext } from "react";
+import Messanger from './pages/messanger/Messanger'
+import Friends from "./pages/friends/Friends";
 
 function App() {
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  const { user } = useContext(AuthContext)
 
   return (
       <Router>
@@ -22,6 +23,8 @@ function App() {
           <Route path="/profile/:userName" element={user ? <Profile /> : <Navigate to="/" />} />
           <Route path="/home" element={ user ? <Home /> : <Navigate to="/" /> } />
           <Route path="/register" element={ !user ? <Register /> : <Navigate to="/" />} />
+          <Route path="/chat" element={ !user ? <Navigate to="/" /> : <Messanger />} />
+          <Route path="/friends" element={ !user ? <Navigate to="/" /> : <Friends />} />
         </Routes>
       </Router>
   );
